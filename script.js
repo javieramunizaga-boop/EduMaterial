@@ -1,4 +1,6 @@
-import { GoogleGenerativeAI } from "https://esm.run/@google/generative-ai";
+import {
+  GoogleGenerativeAI,
+} from "https://esm.run/@google/generative-ai?target=web";
 
 const genAI = new GoogleGenerativeAI("AIzaSyCfib7Cx_pj9l8sjHtm3biOobmjm0MMUNs");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
@@ -39,5 +41,6 @@ window.consultarIA = consultarIA;
 
 // 🔥 CONECTAR EL BOTÓN SIN onClick en HTML
 document.getElementById("btn").addEventListener("click", consultarIA);
+
 
 
