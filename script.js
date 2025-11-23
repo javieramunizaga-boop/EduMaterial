@@ -2,7 +2,7 @@ import {
   GoogleGenerativeAI,
 } from "https://esm.run/@google/generative-ai?target=web";
 
-const genAI = new GoogleGenerativeAI("AIzaSyCfib7Cx_pj9l8sjHtm3biOobmjm0MMUNs");
+const genAI = new GoogleGenerativeAI("AIzaSyCGA_heBs7lbuKQj3KTdHXJUT0iHHk5Gpk");
 const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Instrucciones del sistema
@@ -41,6 +41,7 @@ window.consultarIA = consultarIA;
 
 // 🔥 CONECTAR EL BOTÓN SIN onClick en HTML
 document.getElementById("btn").addEventListener("click", consultarIA);
+
 
 
 
