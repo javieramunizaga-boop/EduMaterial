@@ -2,8 +2,8 @@ import {
   GoogleGenerativeAI,
 } from "https://esm.run/@google/generative-ai?target=web";
 
-const genAI = new GoogleGenerativeAI("AIzaSyCGA_heBs7lbuKQj3KTdHXJUT0iHHk5Gpk");
-const model = genAI.getGenerativeModel({ model: "models/gemini-1.5-flash-latest" });
+const genAI = new GoogleGenerativeAI("TU_API_KEY_AQUÍ");
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
 
 // Instrucciones del sistema
 const INSTRUCCIONES = `
@@ -38,4 +38,3 @@ async function consultarIA() {
 
 window.consultarIA = consultarIA;
 document.getElementById("btn").addEventListener("click", consultarIA);
-
