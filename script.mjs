@@ -1,41 +1,69 @@
 import {
+
   GoogleGenerativeAI,
+
 } from "https://esm.run/@google/generative-ai?target=web";
+ 
+const API_KEY = "AIzaSyBoQJyl-nXVeFe5b6LE1bl4ihB0c3KdUz8";
 
-const genAI = new GoogleGenerativeAI("AIzaSyCGA_heBs7lbuKQj3KTdHXJUT0iHHk5Gpk");
-const model = genAI.getGenerativeModel({ model: "models/gemini-1.5-flash-latest" });
+const genAI = new GoogleGenerativeAI(API_KEY);
+ 
+// 👇 Cambiamos al modelo actual
 
+const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+ 
 // Instrucciones del sistema
+
 const INSTRUCCIONES = `
+
 Eres EduMaterial, un asistente que genera listas de materiales (BOM) y recursos para cursos.
+
 Sigue estas reglas:
+
 - Organiza materiales por categorías.
+
 - Entrega cantidades y sugerencias.
+
 - Si falta información, pregunta.
+
 `;
-
+ 
 async function consultarIA() {
-  const entrada = document.getElementById('input').value;
-  const respuestaDiv = document.getElementById('respuesta');
 
+  const entrada = document.getElementById("input").value;
+
+  const respuestaDiv = document.getElementById("respuesta");
+ 
   if (!entrada.trim()) {
+
     respuestaDiv.innerText = "Escribe una consulta.";
+
     return;
+
   }
-
+ 
   respuestaDiv.innerText = "Generando respuesta...";
-
+ 
   try {
+
     const result = await model.generateContent(INSTRUCCIONES + "\n\n" + entrada);
+
     const texto = await result.response.text();
+
     respuestaDiv.innerText = texto;
 
   } catch (err) {
-    console.error(err);
+
+    console.error("Error en consultarIA:", err);
+
     respuestaDiv.innerText = "Error al generar la respuesta.";
+
   }
+
 }
-
+ 
 window.consultarIA = consultarIA;
-document.getElementById("btn").addEventListener("click", consultarIA);
 
+document.getElementById("btn").addEventListener("click", consultarIA);
+ 
+ 
