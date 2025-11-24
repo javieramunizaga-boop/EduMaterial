@@ -4,7 +4,7 @@ import {
 
 } from "https://esm.run/@google/generative-ai?target=web";
  
-const API_KEY = "AIzaSyBoQJyl-nXVeFe5b6LE1bl4ihB0c3KdUz8";
+const API_KEY = "AIzaSyBa2YOTYsW1-f4c2N3Umd3ARYqLeVxxEp4";
 
 const genAI = new GoogleGenerativeAI(API_KEY);
  
@@ -67,3 +67,4 @@ window.consultarIA = consultarIA;
 document.getElementById("btn").addEventListener("click", consultarIA);
  
  
+
